@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>TODO APP</title>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="./static/css/todo.css" type="text/css" charset="utf-8" />
+        <link rel="icon" href="./static/img/favicon.png" type="image/png">
+    </head>
+    <body>
+        <main>
+            <h1>My TODO List</h1>
+            <span class="hide" id="counter">0</span>
+            <p>
+                Saisissez quelque chose à faire et cliquez sur <em>Ajouter</em>.
+            </p>
+            <form id="addForm" method="POST" action="#">
+                <input type="text" value="" placeholder="Quelque chose à faire" id="task"/>
+                <input type="submit" id="add" value="Ajouter" />
+            </form>
+            <ul id="list">
+            </ul>
+            <form id="saveForm" method="POST" action="/">
+                <p class="right-align">
+                    <input type="reset" id="clear" value="Clear" />
+                    <input type="submit" id="save" value="Save" />
+                </p>
+            </form>
+        </main>
+        <script src="./static/js/todo.js" charset="utf-8"></script>
+    </body>
+</html>

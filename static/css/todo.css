@@ -1,0 +1,166 @@
+/* Sélecteur universel (*): appliquer à tous les éléments 
+* Plus d'info sur box-sizing ici:
+* https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+* et ici: https://css-tricks.com/box-sizing/
+*/
+*{ 
+    box-sizing: border-box;
+}
+
+body{
+    background: #eee url(../img/todo-bg.png) 0 0 repeat;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+main{
+    /* Nous en avons besoin pour positionner #counter en absolu */
+    position: relative;
+    background: white;
+    padding: 30px;
+    width: 400px;
+    margin: 40px auto;
+    /* Propriété CSS pour avoir l'effet ombre */
+    box-shadow: 0px 0px 14px -4px rgba(0,0,0,0.15);
+}
+
+main p{
+    margin: 10px 0;
+}
+
+main h1{
+    margin: 40px auto;
+    /* 
+     * Technique de remplacement de texte par une image 
+     * Credit: Scott Kellum.
+     * Citée par: Jeffrey Zeldman
+     * http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+     */
+    height: 38px; /* Hauteur de l'image */
+    width: 233px; /* Largeur de l'image */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url(../img/todo.png) top left no-repeat;
+    /* Fin de la technique de remplacement de texte */
+}
+
+#counter{
+    /* Compteur positionné de façon absolue dans main, en haut à droite */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: red;
+    padding: 2px 4px;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Les formulaires*/
+
+#addForm{
+    padding: 8px;
+    border: 1px solid steelblue;
+    background: lightblue;
+}
+
+#task{
+    padding: 4px;
+    width: 65%;
+}
+
+#add{
+    /* Espacement interne: 8 px partout (plus 16px à droite pour l'icône) */
+    padding: 8px 8px 8px 24px;
+    margin-left: 8px;
+    background: white url(../img/add.png) 4px 50% no-repeat;
+    border: 1px solid steelblue;
+    border-radius: 4px;
+}
+
+#saveForm{
+    padding: 8px;
+    border-top: 3px solid steelblue;
+}
+
+/* La liste */
+
+ul{
+    width: 100%;
+    margin: 20px 0;
+    padding: 0;
+    border-bottom: 1px solid #eee;
+}
+
+li {
+    display: block;
+    margin: 0;
+    padding: 4px;
+    border-top: 1px solid #eee;
+}
+
+li:hover{
+    background: #fff3f2;
+    cursor: pointer;
+}
+
+li > button {
+    /* Les <button>s des actions sont cachés par défaut. display: none */
+    display: none;
+    border: unset;
+    padding: 0;
+    float: right; /* les <button> flottent à droite */
+    /* Remplacement de texte. cf. Scott Kellum cité plus haut */
+    /* L'image de remplacement, on la précisera selon la classe ci-dessous */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* Dimensions de l'icône 16x16 pixels */
+    height: 16px;
+    width: 16px;
+    margin-left:4px;
+}
+
+/* Au survol sur un item <li> de la liste, le button qui est dedans, devient visible */
+li:hover > button {
+    display: block;
+}
+
+/* Les différentes icônes (images) selon l'action (définie par la classe) */
+li > button.del {
+    background: url(../img/delete.png) 0 0 no-repeat;
+}
+
+li > button.edit {
+    background: url(../img/edit.png) 0 0 no-repeat;
+}
+li > button.ok {
+    background: url(../img/ok.png) 0 0 no-repeat;
+}
+
+/* <input> d'édition sur place de la tâche */
+li > input{
+    padding:1px;
+    border:1px solid lightblue;
+    background-color: lemonchiffon;
+    width:85%;
+}
+
+.hide {
+    display: none;
+}
+
+.right-align{
+    text-align: right;
+}
+
+/* Bonus: Quelques ajustements pour une version mobile-friendly */
+@media only screen and (max-width: 600px) {
+    main {
+        width: 100%;
+        margin:0 auto;
+    }
+}
+
